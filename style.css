@@ -1,0 +1,128 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+}
+
+/* New Game Modal */
+
+.newGame{
+position: absolute;
+width: 80%;
+left: 10%;
+height: 80%;
+top: 10%;
+background-color: white;
+border-radius: 25px;
+border: 1px solid hotpink;
+box-shadow: 2px 2px 5px hotpink;
+z-index: 2;
+}
+
+.hide{
+  visibility: hidden;
+}
+
+/* Navigation Section */
+.nav{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: black;
+  box-shadow:5px 5px 20px hotpink;
+  font-size: 2.5em;
+  color: hotpink;
+  text-shadow:2px 2px 3px white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.gameArea{
+  font-family: 'Poppins';
+  color: white;
+  font-size: 150px;
+  text-align: center;
+}
+
+/* Score Section */
+
+.scoreArea{
+  display: flex;
+  top: 100px;
+  left: 50px;
+  position: absolute;
+  background-color: hotpink;
+  border: 2px solid rgb(247, 2, 124);
+  box-shadow:5px 5px 20px hotpink;
+  border-radius: 20px;
+  width: 500px;
+  height: 490px;
+}
+
+.play1, .play2{
+  margin-top: 5px;
+margin-left: 5px;
+width:240px;
+height:100px;
+background-color: seagreen;
+border-radius: 20px;
+color: gold;
+font-size:2rem;
+text-align: center;
+line-height: 100px;
+}
+
+.play2{
+  margin-left: 10px;
+}
+
+/* Play Section */
+
+.playArea{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 50px;
+  top: 100px;
+  background-color: black;
+  border: 2px solid rgb(63, 63, 63);
+  box-shadow:5px 5px 20px rgb(36, 36, 36);
+  border-radius: 20px;
+  width: 645px;
+  height: 490px;
+}
+
+
+.left, .middle, .right{
+  margin: 10px 0 0 10px;
+  position: relative;
+  width: 200px;
+  height: 453px;
+  /* border:1px solid yellow; */
+}
+
+.box{
+  width: 199px;
+  height: 150px;
+  border: 1px dashed white;
+  margin-bottom: 5px;
+  line-height: 150px;
+  font-weight: 900;
+}
+
+.box:hover{
+  background-color: salmon;
+  cursor: crosshair;
+}
+
+#X{
+  background-color: rgb(247, 2, 124);
+  cursor:default;
+}
+
+.O{
+  background-color: greenyellow;
+  cursor:default;
+}
