@@ -6,7 +6,7 @@
 
 /* New Game Modal */
 
-.newGame{
+.new-game-modal{
 position: absolute;
 width: 80%;
 left: 10%;
@@ -17,6 +17,51 @@ border-radius: 25px;
 border: 1px solid hotpink;
 box-shadow: 2px 2px 5px hotpink;
 z-index: 2;
+display: flex;
+flex-direction: column;
+padding-left: 20px;
+}
+
+.new-game-form{
+  margin-top: 50px;
+  /* display: flex;
+  align-items: center; */
+}
+
+.player1Details, .player2Details{
+  display: flex;
+}
+
+.player2Details{
+  margin-top: 50px;
+}
+
+.p1nameSelect{
+  color: #FF00AE;
+}
+
+.p1Detail h2, .p2Detail h2{
+  font-size: 50px;
+  margin-right: 50px;
+}
+
+.p1Name{
+  width: 300px;
+  height: 50px;
+  margin: 0 50px 0 10px ;
+}
+
+.p2Name{
+  width: 300px;
+  height: 50px;
+  margin-right: 50px;
+}
+
+#p1col{
+  width: 50px;
+  height: 50px;
+  
+
 }
 
 .hide{
@@ -56,10 +101,12 @@ z-index: 2;
   background-color: gold;
   font-size: 0.5em;
   font-weight: 600;
+  outline: none;
 }
 
 #new-game-btn:hover{
   background-color: goldenrod;
+  transform: translateY(1px) ;
 }
 
 /* Score Section */
