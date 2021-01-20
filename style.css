@@ -40,7 +40,7 @@ padding-left: 20px;
   color: #FF00AE;
 }
 
-.p1Detail h2, .p2Detail h2{
+.p1nameSelect, .p2nameSelect{
   font-size: 50px;
   margin-right: 50px;
 }
@@ -49,15 +49,21 @@ padding-left: 20px;
   width: 300px;
   height: 50px;
   margin: 0 50px 0 10px ;
+  padding-left: 20px;
+  font-size: 30px;
+  outline: none;
 }
 
 .p2Name{
   width: 300px;
   height: 50px;
   margin-right: 50px;
+  padding-left: 20px;
+  font-size: 30px;
+  outline: none;
 }
 
-#p1col{
+#p1col, #p2col{
   width: 50px;
   height: 50px;
   
@@ -106,7 +112,7 @@ padding-left: 20px;
 
 #new-game-btn:hover{
   background-color: goldenrod;
-  transform: translateY(1px) ;
+  transform: translateY(-1px) ;
 }
 
 /* Score Section */
