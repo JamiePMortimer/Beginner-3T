@@ -39,6 +39,9 @@ padding-left: 20px;
 .p1nameSelect{
   color: #FF00AE;
 }
+.p2nameSelect{
+color: #10F500;
+}
 
 .p1nameSelect, .p2nameSelect{
   font-size: 50px;
@@ -66,8 +69,27 @@ padding-left: 20px;
 #p1col, #p2col{
   width: 50px;
   height: 50px;
-  
+}
 
+.start-btn{
+  font-weight: 600;
+  font-size: 20px;
+  color: beige;
+  position: absolute;
+  right: 2%;
+  bottom: 2%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 2px 2px 2px 1px grey;
+  background-color: green;
+  outline: none;
+}
+
+.start-btn:hover{
+  transform: translateY(1px);
+  cursor: pointer;
 }
 
 .hide{
