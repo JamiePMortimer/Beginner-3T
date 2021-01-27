@@ -10,12 +10,11 @@ const player1Name = document.querySelector('.play1');
 const player2Name = document.querySelector('.play2');
 const player1NameInput = document.querySelector('.p1Name');
 const player2NameInput = document.querySelector('.p2Name');
+const list = document.querySelectorAll('.box');
 
-let winner;
-let p1;
-let p2;
-let playerTurn;
+let winner, p1, p2, playerTurn;
 
+// Put this into a function
 p1colour.addEventListener('focusout', () => {
   p1name.style.color = p1colour.value;
 });
@@ -25,8 +24,6 @@ p2colour.addEventListener('focusout', () => {
 newGameBtn.addEventListener('click', () => {
   newGameModal.classList.remove('hide');
 });
-
-start.addEventListener('click', startGame);
 
 function startGame() {
   if (player1NameInput.value === '' || player2NameInput.value === '') {
@@ -46,18 +43,25 @@ function startGame() {
 function playerTurnCheck(turn) {
   if (turn === 'START') {
     const turn = Math.floor(Math.random() * 100);
-    if(turn % 2 === 0){
+    if (turn % 2 === 0) {
       playerTurn = 'P1';
     } else {
       playerTurn = 'P2';
-    } 
+    }
+  } else {
+    if (playerTurn === 'P1') {
+      playerTurn = 'P2';
     } else {
-      if (playerTurn === 'P1'){
-       playerTurn = 'P2' 
-      } else {
-        playerTurn = 'P1'
-      }
+      playerTurn = 'P1';
+    }
   }
+}
+
+function clearBoard() {
+  list.forEach((e) => {
+    e.textContent = '';
+    e.id = '';
+  });
 }
 
 function winnerCheck() {
@@ -88,3 +92,5 @@ function winnerCheck() {
     p2Score++;
   }
 }
+
+start.addEventListener('click', startGame);
