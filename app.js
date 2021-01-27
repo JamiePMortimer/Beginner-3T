@@ -14,6 +14,7 @@ const player2NameInput = document.querySelector('.p2Name');
 let winner;
 let p1;
 let p2;
+let playerTurn;
 
 p1colour.addEventListener('focusout', () => {
   p1name.style.color = p1colour.value;
@@ -38,31 +39,52 @@ function startGame() {
     player2NameInput.value = null;
     player1Name.style.color = p1colour.value;
     player2Name.style.color = p2colour.value;
+    playerTurn('START');
   }
 }
 
-// if (
-//   (a === 'X' && b === 'X' && c === 'X') ||
-//   (d === 'X' && e === 'X' && f === 'X') ||
-//   (g === 'X' && h === 'X' && i === 'X') ||
-//   (a === 'X' && d === 'X' && g === 'X') ||
-//   (b === 'X' && e === 'X' && h === 'X') ||
-//   (c === 'X' && f === 'X' && i === 'X') ||
-//   (a === 'X' && e === 'X' && i === 'X') ||
-//   (c === 'X' && e === 'X' && g === 'X')
-// ) {
-//   winner = p1;
-//   p1Score++;
-// } if (
-//   (a === 'O' && b === 'O' && c === 'O') ||
-//   (d === 'O' && e === 'O' && f === 'O') ||
-//   (g === 'O' && h === 'O' && i === 'O') ||
-//   (a === 'O' && d === 'O' && g === 'O') ||
-//   (b === 'O' && e === 'O' && h === 'O') ||
-//   (c === 'O' && f === 'O' && i === 'O') ||
-//   (a === 'O' && e === 'O' && i === 'O') ||
-//   (c === 'O' && e === 'O' && g === 'O')
-// ) {
-//   winner = p2
-//   p2Score++;
-// }
+function playerTurnCheck(turn) {
+  if (turn === 'START') {
+    const turn = Math.floor(Math.random() * 100);
+    if(turn % 2 === 0){
+      playerTurn = 'P1';
+    } else {
+      playerTurn = 'P2';
+    } 
+    } else {
+      if (playerTurn === 'P1'){
+       playerTurn = 'P2' 
+      } else {
+        playerTurn = 'P1'
+      }
+  }
+}
+
+function winnerCheck() {
+  if (
+    (a === 'X' && b === 'X' && c === 'X') ||
+    (d === 'X' && e === 'X' && f === 'X') ||
+    (g === 'X' && h === 'X' && i === 'X') ||
+    (a === 'X' && d === 'X' && g === 'X') ||
+    (b === 'X' && e === 'X' && h === 'X') ||
+    (c === 'X' && f === 'X' && i === 'X') ||
+    (a === 'X' && e === 'X' && i === 'X') ||
+    (c === 'X' && e === 'X' && g === 'X')
+  ) {
+    winner = p1;
+    p1Score++;
+  }
+  if (
+    (a === 'O' && b === 'O' && c === 'O') ||
+    (d === 'O' && e === 'O' && f === 'O') ||
+    (g === 'O' && h === 'O' && i === 'O') ||
+    (a === 'O' && d === 'O' && g === 'O') ||
+    (b === 'O' && e === 'O' && h === 'O') ||
+    (c === 'O' && f === 'O' && i === 'O') ||
+    (a === 'O' && e === 'O' && i === 'O') ||
+    (c === 'O' && e === 'O' && g === 'O')
+  ) {
+    winner = p2;
+    p2Score++;
+  }
+}
