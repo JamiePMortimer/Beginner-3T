@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: Poppins;
@@ -6,58 +6,69 @@
 
 /* New Game Modal */
 
-.new-game-modal{
-position: absolute;
-width: 80%;
-left: 10%;
-height: 80%;
-top: 10%;
-background-color: white;
-border-radius: 25px;
-border: 1px solid hotpink;
-box-shadow: 2px 2px 5px hotpink;
-z-index: 2;
-display: flex;
-flex-direction: column;
-padding-left: 20px;
+.new-game-modal {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  height: 80%;
+  top: 10%;
+  background-color: white;
+  border-radius: 25px;
+  border: 1px solid hotpink;
+  box-shadow: 2px 2px 5px hotpink;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
 }
 
-.new-game-form{
+.backdrop-modal {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 9;
+}
+
+.new-game-form {
   margin-top: 50px;
   /* display: flex;
   align-items: center; */
 }
 
-.player1Details, .player2Details{
+.player1Details,
+.player2Details {
   display: flex;
 }
 
-.player2Details{
+.player2Details {
   margin-top: 50px;
 }
 
-.p1nameSelect{
-  color: #FF00AE;
+.p1nameSelect {
+  color: #ff00ae;
 }
-.p2nameSelect{
-color: #10F500;
+.p2nameSelect {
+  color: #10f500;
 }
 
-.p1nameSelect, .p2nameSelect{
+.p1nameSelect,
+.p2nameSelect {
   font-size: 50px;
   margin-right: 50px;
 }
 
-.p1Name{
+.p1Name {
   width: 300px;
   height: 50px;
-  margin: 0 50px 0 10px ;
+  margin: 0 50px 0 10px;
   padding-left: 20px;
   font-size: 30px;
   outline: none;
 }
 
-.p2Name{
+.p2Name {
   width: 300px;
   height: 50px;
   margin-right: 50px;
@@ -66,12 +77,13 @@ color: #10F500;
   outline: none;
 }
 
-#p1col, #p2col{
+#p1col,
+#p2col {
   width: 50px;
   height: 50px;
 }
 
-.start-btn{
+.start-btn {
   font-weight: 600;
   font-size: 20px;
   color: beige;
@@ -87,91 +99,116 @@ color: #10F500;
   outline: none;
 }
 
-.start-btn:hover{
+.cancel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 20px;
+  color: beige;
+  position: absolute;
+  left: 2%;
+  bottom: 2%;
+  width: 100px;
+  height: 50px;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 2px 2px 2px 1px grey;
+  background-color: rgb(219, 1, 1);
+  outline: none;
+}
+
+.cancel-btn:hover{
   transform: translateY(1px);
   cursor: pointer;
 }
 
-.hide{
+.start-btn:hover {
+  transform: translateY(1px);
+  cursor: pointer;
+}
+
+.hide {
   visibility: hidden;
 }
 
 /* Navigation Section */
-.nav{
+.nav {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 80px;
   background-color: black;
-  box-shadow:5px 5px 20px hotpink;
+  box-shadow: 5px 5px 20px hotpink;
   font-size: 2.5em;
   color: hotpink;
-  text-shadow:2px 2px 3px white;
+  text-shadow: 2px 2px 3px white;
   text-align: center;
   text-transform: uppercase;
 }
 
-.gameArea{
+.gameArea {
   font-family: 'Poppins';
   color: white;
   font-size: 150px;
   text-align: center;
 }
 
-#new-game-btn{
+#new-game-btn {
   position: absolute;
   right: 5%;
   top: 30%;
   height: 50%;
   width: 12%;
-  border-radius:25px;
+  border-radius: 25px;
   background-color: gold;
   font-size: 0.5em;
   font-weight: 600;
   outline: none;
 }
 
-#new-game-btn:hover{
+#new-game-btn:hover {
   background-color: goldenrod;
-  transform: translateY(-1px) ;
+  transform: translateY(-1px);
 }
 
 /* Score Section */
 
-.scoreArea{
+.scoreArea {
   display: flex;
   top: 100px;
   left: 50px;
   position: absolute;
   background-color: hotpink;
   border: 2px solid rgb(247, 2, 124);
-  box-shadow:5px 5px 20px hotpink;
+  box-shadow: 5px 5px 20px hotpink;
   border-radius: 20px;
   width: 500px;
   height: 490px;
 }
 
-.play1, .play2{
+.play1,
+.play2 {
   margin-top: 5px;
-margin-left: 5px;
-width:240px;
-height:100px;
-background-color: black;
-border-radius: 20px;
-color: gold;
-font-size:2rem;
-text-align: center;
-line-height: 100px;
+  margin-left: 5px;
+  width: 240px;
+  height: 100px;
+  background-color: black;
+  border-radius: 20px;
+  color: gold;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 100px;
 }
 
-.play2{
+.play2 {
   margin-left: 10px;
 }
 
 /* Play Section */
 
-.playArea{
+.playArea {
   display: flex;
   flex-direction: row;
   position: absolute;
@@ -179,21 +216,22 @@ line-height: 100px;
   top: 100px;
   background-color: black;
   border: 2px solid rgb(63, 63, 63);
-  box-shadow:5px 5px 20px rgb(36, 36, 36);
+  box-shadow: 5px 5px 20px rgb(36, 36, 36);
   border-radius: 20px;
   width: 645px;
   height: 490px;
 }
 
-
-.left, .middle, .right{
+.left,
+.middle,
+.right {
   margin: 10px 0 0 10px;
   position: relative;
   width: 200px;
   height: 453px;
 }
 
-.box{
+.box {
   width: 199px;
   height: 150px;
   border: 1px dashed white;
@@ -202,17 +240,17 @@ line-height: 100px;
   font-weight: 900;
 }
 
-.box:hover{
+.box:hover {
   background-color: gold;
   cursor: crosshair;
 }
 
-#X{
+#X {
   background-color: rgb(247, 2, 124);
-  cursor:default;
+  cursor: default;
 }
 
-.O{
+.O {
   background-color: greenyellow;
-  cursor:default;
+  cursor: default;
 }

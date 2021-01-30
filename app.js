@@ -1,11 +1,12 @@
 const newGameBtn = document.getElementById('new-game-btn');
 const newGameModal = document.querySelector('.new-game-modal');
-const backdrop = document.getElementById('backdrop-modal');
+const backdrop = document.querySelector('.backdrop-modal');
 const p1colour = document.getElementById('p1col');
 const p2colour = document.getElementById('p2col');
 const p1name = document.querySelector('.p1nameSelect');
 const p2name = document.querySelector('.p2nameSelect');
 const start = document.querySelector('.start-btn');
+const cancel = document.querySelector('.cancel-btn');
 const player1Name = document.querySelector('.play1');
 const player2Name = document.querySelector('.play2');
 const player1NameInput = document.querySelector('.p1Name');
@@ -23,20 +24,42 @@ p2colour.addEventListener('focusout', () => {
 });
 newGameBtn.addEventListener('click', () => {
   newGameModal.classList.remove('hide');
+  backdrop.classList.remove('hide');
+  cancelGame();
+  backdrop.addEventListener('click', () =>{
+    newGameModal.classList.add('hide');
+    backdrop.classList.add('hide');
+    clearNames();
+  })
 });
+
+function cancelGame (){
+  cancel.addEventListener('click', () =>{
+    newGameModal.classList.add('hide');
+    backdrop.classList.add('hide');
+    clearNames();
+  })}
+
+  
+function clearNames (){
+  player1NameInput.value = null;
+  player2NameInput.value = null;
+
+}
 
 function startGame() {
   if (player1NameInput.value === '' || player2NameInput.value === '') {
     return;
   } else {
     newGameModal.classList.add('hide');
+    clearNames();
+    backdrop.classList.add('hide');
     player1Name.textContent = player1NameInput.value;
     player2Name.textContent = player2NameInput.value;
-    player1NameInput.value = null;
-    player2NameInput.value = null;
     player1Name.style.color = p1colour.value;
     player2Name.style.color = p2colour.value;
-    playerTurn('START');
+    clearBoard();
+    playerTurnCheck('START');
   }
 }
 
@@ -56,6 +79,12 @@ function playerTurnCheck(turn) {
     }
   }
 }
+
+const boxListeners = function () {
+  list.forEach((e) => {
+    e.addEventListener('click', console.log('Click'));
+  });
+};
 
 function clearBoard() {
   list.forEach((e) => {
