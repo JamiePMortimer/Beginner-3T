@@ -14,7 +14,7 @@ const player2NameInput = document.querySelector('.p2Name');
 const gridArea = document.querySelector('.playArea');
 const list = document.querySelectorAll('.box');
 
-let winner, p1, p2, playerTurn;
+let winner, p1, p2, playerTurn, p1Score = 0, p2Score = 0;
 
 list.forEach((e) => {
   e.addEventListener('click', addMarkerHandler);
@@ -29,6 +29,7 @@ function addMarkerHandler(e) {
     e.target.style.color = p2colour.value;
   }
   e.target.removeEventListener('click', addMarkerHandler);
+  winnerCheck();
   playerTurnCheck();
 }
 
@@ -114,30 +115,32 @@ function clearBoard() {
 
 function winnerCheck() {
   if (
-    (a === 'X' && b === 'X' && c === 'X') ||
-    (d === 'X' && e === 'X' && f === 'X') ||
-    (g === 'X' && h === 'X' && i === 'X') ||
-    (a === 'X' && d === 'X' && g === 'X') ||
-    (b === 'X' && e === 'X' && h === 'X') ||
-    (c === 'X' && f === 'X' && i === 'X') ||
-    (a === 'X' && e === 'X' && i === 'X') ||
-    (c === 'X' && e === 'X' && g === 'X')
+    (list[0].textContent === 'X' && list[1].textContent === 'X' && list[2].textContent === 'X') ||
+    (list[3].textContent === 'X' && list[4].textContent === 'X' && list[5].textContent === 'X') ||
+    (list[6].textContent === 'X' && list[7].textContent === 'X' && list[8].textContent === 'X') ||
+    (list[0].textContent === 'X' && list[3].textContent === 'X' && list[6].textContent === 'X') ||
+    (list[1].textContent === 'X' && list[4].textContent === 'X' && list[7].textContent === 'X') ||
+    (list[2].textContent === 'X' && list[5].textContent === 'X' && list[8].textContent === 'X') ||
+    (list[0].textContent === 'X' && list[4].textContent === 'X' && list[8].textContent === 'X') ||
+    (list[2].textContent === 'X' && list[4].textContent === 'X' && list[6].textContent === 'X')
   ) {
     winner = p1;
     p1Score++;
+    alert('P1 Wins!')
   }
   if (
-    (a === 'O' && b === 'O' && c === 'O') ||
-    (d === 'O' && e === 'O' && f === 'O') ||
-    (g === 'O' && h === 'O' && i === 'O') ||
-    (a === 'O' && d === 'O' && g === 'O') ||
-    (b === 'O' && e === 'O' && h === 'O') ||
-    (c === 'O' && f === 'O' && i === 'O') ||
-    (a === 'O' && e === 'O' && i === 'O') ||
-    (c === 'O' && e === 'O' && g === 'O')
+    (list[0].textContent === 'O' && list[1].textContent === 'O' && list[2].textContent === 'O') ||
+    (list[3].textContent === 'O' && list[4].textContent === 'O' && list[5].textContent === 'O') ||
+    (list[6].textContent === 'O' && list[7].textContent === 'O' && list[8].textContent === 'O') ||
+    (list[0].textContent === 'O' && list[3].textContent === 'O' && list[6].textContent === 'O') ||
+    (list[1].textContent === 'O' && list[4].textContent === 'O' && list[7].textContent === 'O') ||
+    (list[2].textContent === 'O' && list[5].textContent === 'O' && list[8].textContent === 'O') ||
+    (list[0].textContent === 'O' && list[4].textContent === 'O' && list[8].textContent === 'O') ||
+    (list[2].textContent === 'O' && list[4].textContent === 'O' && list[6].textContent === 'O')
   ) {
     winner = p2;
     p2Score++;
+    alert('P1 Wins!')
   }
 }
 
