@@ -11,9 +11,34 @@ const player1Name = document.querySelector('.play1');
 const player2Name = document.querySelector('.play2');
 const player1NameInput = document.querySelector('.p1Name');
 const player2NameInput = document.querySelector('.p2Name');
+const gridArea = document.querySelector('.playArea');
 const list = document.querySelectorAll('.box');
 
 let winner, p1, p2, playerTurn;
+
+list.forEach((e) => {
+  e.addEventListener('click', addMarkerHandler.bind(e));
+});
+
+function addMarkerHandler(e) {
+  console.log(playerTurn);
+  if ((playerTurn === 'P1')) {
+    e.target.textContent = 'X';
+  } else {
+    e.target.textContent = 'O';
+  }
+  playerTurnCheck();
+}
+
+// gridArea.addEventListener('click', (e) => {
+//   if ((playerTurn = 'P1')) {
+//     e.target.textContent = 'X';
+//     console.log(playerTurn);
+//   } else {
+//     e.target.textContent = 'O';
+//   }
+//   playerTurnCheck();
+// });
 
 // Put this into a function
 p1colour.addEventListener('focusout', () => {
@@ -26,25 +51,24 @@ newGameBtn.addEventListener('click', () => {
   newGameModal.classList.remove('hide');
   backdrop.classList.remove('hide');
   cancelGame();
-  backdrop.addEventListener('click', () =>{
+  backdrop.addEventListener('click', () => {
     newGameModal.classList.add('hide');
     backdrop.classList.add('hide');
     clearNames();
-  })
+  });
 });
 
-function cancelGame (){
-  cancel.addEventListener('click', () =>{
+function cancelGame() {
+  cancel.addEventListener('click', () => {
     newGameModal.classList.add('hide');
     backdrop.classList.add('hide');
     clearNames();
-  })}
+  });
+}
 
-  
-function clearNames (){
+function clearNames() {
   player1NameInput.value = null;
   player2NameInput.value = null;
-
 }
 
 function startGame() {
@@ -52,20 +76,23 @@ function startGame() {
     return;
   } else {
     newGameModal.classList.add('hide');
-    clearNames();
     backdrop.classList.add('hide');
     player1Name.textContent = player1NameInput.value;
     player2Name.textContent = player2NameInput.value;
     player1Name.style.color = p1colour.value;
     player2Name.style.color = p2colour.value;
+    clearNames();
     clearBoard();
     playerTurnCheck('START');
   }
 }
 
+
+
 function playerTurnCheck(turn) {
   if (turn === 'START') {
     const turn = Math.floor(Math.random() * 100);
+
     if (turn % 2 === 0) {
       playerTurn = 'P1';
     } else {
