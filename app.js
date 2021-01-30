@@ -13,6 +13,8 @@ const player1NameInput = document.querySelector('.p1Name');
 const player2NameInput = document.querySelector('.p2Name');
 const gridArea = document.querySelector('.playArea');
 const list = document.querySelectorAll('.box');
+const Score1 = document.querySelector('.P1Score');
+const Score2 = document.querySelector('.P2Score');
 
 let winner, p1, p2, playerTurn, p1Score = 0, p2Score = 0;
 
@@ -126,6 +128,7 @@ function winnerCheck() {
   ) {
     winner = p1;
     p1Score++;
+    Score1.textContent = p1Score;
     alert('P1 Wins!')
   }
   if (
@@ -140,7 +143,8 @@ function winnerCheck() {
   ) {
     winner = p2;
     p2Score++;
-    alert('P1 Wins!')
+    Score2.textContent = p2Score;
+    alert('P2 Wins!')
   }
 }
 

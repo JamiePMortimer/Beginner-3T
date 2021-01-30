@@ -12,7 +12,7 @@
     />
   </head>
   <body>
-<div class="backdrop-modal hide"></div>
+    <div class="backdrop-modal hide"></div>
     <section class="new-game-modal hide">
       <form action="" class="new-game-form">
         <div class="player1Details">
@@ -42,8 +42,14 @@
     </section>
     <section class="gameArea">
       <div class="scoreArea">
-        <div class="play1">Player 1</div>
-        <div class="play2">Player 2</div>
+        <div class="players">
+          <div class="play1">Player 1</div>
+          <div class="play2">Player 2</div>
+        </div>
+        <div class="scores">
+          <div class="P1Score">0</div>
+          <div class="P2Score">0</div>
+        </div>
       </div>
       <div class="playArea">
         <div class="left">
@@ -63,7 +69,7 @@
         </div>
       </div>
     </section>
-    
+
     <script src="app.js"></script>
   </body>
 </html>
