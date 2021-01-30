@@ -17,28 +17,20 @@ const list = document.querySelectorAll('.box');
 let winner, p1, p2, playerTurn;
 
 list.forEach((e) => {
-  e.addEventListener('click', addMarkerHandler.bind(e));
+  e.addEventListener('click', addMarkerHandler);
 });
 
 function addMarkerHandler(e) {
-  console.log(playerTurn);
   if ((playerTurn === 'P1')) {
     e.target.textContent = 'X';
+    e.target.style.color = p1colour.value;
   } else {
     e.target.textContent = 'O';
+    e.target.style.color = p2colour.value;
   }
+  e.target.removeEventListener('click', addMarkerHandler);
   playerTurnCheck();
 }
-
-// gridArea.addEventListener('click', (e) => {
-//   if ((playerTurn = 'P1')) {
-//     e.target.textContent = 'X';
-//     console.log(playerTurn);
-//   } else {
-//     e.target.textContent = 'O';
-//   }
-//   playerTurnCheck();
-// });
 
 // Put this into a function
 p1colour.addEventListener('focusout', () => {
