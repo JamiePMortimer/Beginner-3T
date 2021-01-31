@@ -17,13 +17,25 @@ const Score1 = document.querySelector('.P1Score');
 const Score2 = document.querySelector('.P2Score');
 const winBox = document.querySelector('.win-modal');
 const turnDisplay = document.querySelector('.playerTurn');
+const nextGameBtn = document.getElementById('again');
 
 let winner, P1, P2, playerTurn, p1Score = 0, p2Score = 0 ;
 let gameLive = false;
 
+
+function gameBoard () {
 list.forEach((e) => {
   e.addEventListener('click', addMarkerHandler);
-});
+})};
+
+nextGameBtn.addEventListener('click', ()=>{
+  clearBoard();
+  gameBoard()
+  winBox.classList.add('hide')
+  gameLive = true;
+  playerTurnCheck('START');
+  nextGameBtn.classList.add('hide');
+})
 
 function addMarkerHandler(e) {
   if (gameLive) {
@@ -86,6 +98,7 @@ function startGame() {
     return;
   } else {
     gameLive = true;
+    gameBoard()
     newGameModal.classList.add('hide');
     backdrop.classList.add('hide');
     player1Name.textContent = player1NameInput.value;
@@ -154,7 +167,7 @@ function winnerCheck() {
     gameLive = false;
     whoseTurn()
     winBox.classList.remove('hide')
-    // winner = p1;
+    nextGameBtn.classList.remove('hide');
     p1Score++;
     Score1.textContent = p1Score;
     turnDisplay.textContent = `${P1} wins!`
@@ -172,7 +185,7 @@ function winnerCheck() {
     gameLive = false;
     whoseTurn()
     winBox.classList.remove('hide');
-    // winner = p2;
+    nextGameBtn.classList.remove('hide');
     p2Score++;
     Score2.textContent = p2Score;
     turnDisplay.textContent = `${P2} wins!`
