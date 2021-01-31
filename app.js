@@ -16,8 +16,9 @@ const list = document.querySelectorAll('.box');
 const Score1 = document.querySelector('.P1Score');
 const Score2 = document.querySelector('.P2Score');
 const winBox = document.querySelector('.win-modal');
+const turnDisplay = document.querySelector('.playerTurn');
 
-let winner, p1, p2, playerTurn, p1Score = 0, p2Score = 0;
+let winner, p1, p2, playerTurn, p1Score = 0, p2Score = 0 ;
 
 list.forEach((e) => {
   e.addEventListener('click', addMarkerHandler);
@@ -67,6 +68,10 @@ function clearNames() {
   player2NameInput.value = null;
 }
 
+function whoseTurn() {
+  turnDisplay.textContent = (playerTurn === 'P1') ? `${p1}'s Turn` : `${p2}'s Turn`
+}
+
 function startGame() {
   if (player1NameInput.value === '' || player2NameInput.value === '') {
     return;
@@ -74,13 +79,16 @@ function startGame() {
     newGameModal.classList.add('hide');
     backdrop.classList.add('hide');
     player1Name.textContent = player1NameInput.value;
+    p1 = player1NameInput.value;
     player2Name.textContent = player2NameInput.value;
+    p2 = player2NameInput.value;
     player1Name.style.color = p1colour.value;
     player2Name.style.color = p2colour.value;
     clearNames();
     clearBoard();
     winBox.classList.add('hide');
     playerTurnCheck('START');
+    whoseTurn();
   }
 }
 
@@ -102,6 +110,7 @@ function playerTurnCheck(turn) {
       playerTurn = 'P1';
     }
   }
+  whoseTurn();
 }
 
 const boxListeners = function () {
