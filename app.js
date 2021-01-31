@@ -15,6 +15,7 @@ const gridArea = document.querySelector('.playArea');
 const list = document.querySelectorAll('.box');
 const Score1 = document.querySelector('.P1Score');
 const Score2 = document.querySelector('.P2Score');
+const winBox = document.querySelector('.win-modal');
 
 let winner, p1, p2, playerTurn, p1Score = 0, p2Score = 0;
 
@@ -78,6 +79,7 @@ function startGame() {
     player2Name.style.color = p2colour.value;
     clearNames();
     clearBoard();
+    winBox.classList.add('hide');
     playerTurnCheck('START');
   }
 }
@@ -126,6 +128,7 @@ function winnerCheck() {
     (list[0].textContent === 'X' && list[4].textContent === 'X' && list[8].textContent === 'X') ||
     (list[2].textContent === 'X' && list[4].textContent === 'X' && list[6].textContent === 'X')
   ) {
+    winBox.classList.remove('hide')
     winner = p1;
     p1Score++;
     Score1.textContent = p1Score;
@@ -141,10 +144,11 @@ function winnerCheck() {
     (list[0].textContent === 'O' && list[4].textContent === 'O' && list[8].textContent === 'O') ||
     (list[2].textContent === 'O' && list[4].textContent === 'O' && list[6].textContent === 'O')
   ) {
+    winBox.classList.remove('hide');
     winner = p2;
     p2Score++;
     Score2.textContent = p2Score;
-    alert('P2 Wins!')
+    alert('P2 Wins!');
   }
 }
 
